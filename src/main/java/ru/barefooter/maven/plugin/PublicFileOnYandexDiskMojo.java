@@ -83,10 +83,12 @@ public class PublicFileOnYandexDiskMojo extends AbstractMojo {
                 DavProperty<?> property = propertySet.get("public_url", namespace);
                 if (property != null) {
                     String publicUrl = (String) property.getValue();
-                    StringSelection stringSelection = new StringSelection(publicUrl);
+                    getLog().info("Link: " + publicUrl);
+                    String data = projectName + " — " + publicUrl;
+                    StringSelection stringSelection = new StringSelection(data);
                     Clipboard clpbrd = Toolkit.getDefaultToolkit().getSystemClipboard();
                     clpbrd.setContents(stringSelection, null);
-                    String message = "Ссылка скопирована в буфер обмена\n" + publicUrl;
+                    String message = "Название проекта и ссылка скопированы в буфер обмена\n" + publicUrl;
                     UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
                     JOptionPane pane = new JOptionPane(message, JOptionPane.INFORMATION_MESSAGE);
                     JDialog dialog = pane.createDialog(projectName);
