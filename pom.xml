@@ -10,6 +10,10 @@
     <packaging>maven-plugin</packaging>
     <name>Public File On Yandex Disk</name>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
